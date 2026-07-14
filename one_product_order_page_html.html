@@ -1,0 +1,705 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CampusCart BD | Convertible Laptop Stand</title>
+  <meta name="description" content="One-product landing page for a student-focused dropshipping store in Bangladesh." />
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --line: #e2e8f0;
+      --brand: #0f172a;
+      --brand-2: #2563eb;
+      --success: #16a34a;
+      --shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(10px);
+      background: rgba(248, 250, 252, 0.92);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+    }
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+      flex-wrap: wrap;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand-badge {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: var(--brand);
+      display: grid;
+      place-items: center;
+      color: white;
+      font-weight: 800;
+    }
+    .brand-title { font-weight: 900; font-size: 18px; }
+    .brand-subtitle { color: var(--muted); font-size: 13px; }
+
+    .socials {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .social-pill {
+      border: 1px solid var(--line);
+      background: white;
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .hero {
+      padding: 30px 0 22px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .product-card {
+      overflow: hidden;
+    }
+    .product-image-wrap {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      background: linear-gradient(135deg, #eff6ff 0%, #e2e8f0 100%);
+      overflow: hidden;
+    }
+    .product-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .floating-badge {
+      position: absolute;
+      left: 18px;
+      top: 18px;
+      background: rgba(15, 23, 42, 0.92);
+      color: white;
+      font-weight: 800;
+      font-size: 13px;
+      padding: 9px 12px;
+      border-radius: 999px;
+    }
+    .product-body {
+      padding: 22px;
+    }
+    .eyebrow {
+      font-size: 12px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 800;
+    }
+    h1 {
+      margin: 10px 0 0;
+      font-size: clamp(34px, 4vw, 58px);
+      line-height: 1.02;
+      font-weight: 950;
+    }
+    .rating {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 14px;
+      flex-wrap: wrap;
+    }
+    .stars {
+      color: #f59e0b;
+      font-size: 18px;
+      letter-spacing: 2px;
+    }
+    .rating-text { color: var(--muted); font-size: 14px; }
+
+    .price-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: end;
+      margin-top: 18px;
+    }
+    .price-box {
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: #f8fafc;
+      border: 1px solid var(--line);
+    }
+    .old-price {
+      color: #94a3b8;
+      text-decoration: line-through;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .new-price {
+      font-size: 30px;
+      font-weight: 950;
+      color: var(--success);
+      line-height: 1.1;
+    }
+    .offer-tag {
+      padding: 10px 14px;
+      border-radius: 14px;
+      background: #dcfce7;
+      color: #166534;
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .btn {
+      border: 0;
+      cursor: pointer;
+      border-radius: 16px;
+      font-weight: 800;
+      padding: 14px 18px;
+      font-size: 15px;
+      transition: transform .15s ease, opacity .15s ease, background .15s ease;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-dark { background: var(--brand); color: white; }
+    .btn-green { background: var(--success); color: white; }
+    .btn-outline { background: white; color: var(--brand); border: 1px solid var(--line); }
+    .btn-full { width: 100%; justify-content: center; }
+
+    .info-list {
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+    .info-list li {
+      display: flex;
+      gap: 10px;
+      align-items: start;
+      color: #334155;
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 12px 14px;
+    }
+    .check {
+      color: var(--success);
+      font-weight: 900;
+      flex: none;
+    }
+
+    .sidebar {
+      display: grid;
+      gap: 18px;
+    }
+    .panel {
+      padding: 20px;
+    }
+    .panel h2, .panel h3 {
+      margin: 0;
+      font-size: 22px;
+      font-weight: 900;
+    }
+    .panel p {
+      margin: 10px 0 0;
+      color: var(--muted);
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .thumb {
+      border-radius: 18px;
+      overflow: hidden;
+      aspect-ratio: 1 / 1;
+      background: #e2e8f0;
+      border: 1px solid var(--line);
+    }
+    .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .section {
+      padding: 10px 0 30px;
+    }
+    .section-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .feature {
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 14px;
+    }
+    .feature strong { display: block; margin-bottom: 6px; }
+    .feature span { color: var(--muted); font-size: 14px; }
+
+    .specs {
+      display: grid;
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .spec-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: #f8fafc;
+      border: 1px solid var(--line);
+    }
+    .spec-row span:first-child { color: var(--muted); }
+    .spec-row span:last-child { font-weight: 800; text-align: right; }
+
+    .reviews {
+      display: grid;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .review {
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 14px;
+    }
+    .review .name { font-weight: 900; }
+    .review .text { color: #475569; margin-top: 6px; }
+
+    .faq {
+      display: grid;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .faq-item {
+      border-radius: 18px;
+      padding: 14px;
+      background: #f8fafc;
+      border: 1px solid var(--line);
+    }
+    .faq-item h4 { margin: 0; font-size: 16px; }
+    .faq-item p { margin: 8px 0 0; color: var(--muted); }
+
+    .form-card {
+      padding: 22px;
+      position: sticky;
+      top: 92px;
+    }
+    form {
+      display: grid;
+      gap: 14px;
+      margin-top: 16px;
+    }
+    label {
+      display: block;
+      font-size: 14px;
+      font-weight: 800;
+      color: #334155;
+      margin-bottom: 8px;
+    }
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid #cbd5e1;
+      border-radius: 16px;
+      padding: 14px 16px;
+      font: inherit;
+      background: white;
+      outline: none;
+    }
+    textarea { min-height: 104px; resize: vertical; }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--brand-2);
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.08);
+    }
+
+    .summary {
+      margin-top: 12px;
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 14px;
+      display: grid;
+      gap: 10px;
+    }
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 15px;
+    }
+    .summary-row strong { font-weight: 900; }
+    .summary-row.total {
+      padding-top: 10px;
+      border-top: 1px dashed #cbd5e1;
+      font-size: 18px;
+    }
+
+    .note {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 8px;
+      line-height: 1.65;
+    }
+
+    .sticky-order {
+      position: sticky;
+      bottom: 0;
+      z-index: 40;
+      background: rgba(248, 250, 252, 0.94);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(226, 232, 240, 0.9);
+      padding: 12px 0;
+      margin-top: 24px;
+    }
+    .sticky-order-inner {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .sticky-order .price-mini {
+      font-weight: 900;
+      font-size: 18px;
+    }
+
+    .footer {
+      padding: 28px 0 36px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid, .section-grid { grid-template-columns: 1fr; }
+      .form-card { position: static; }
+    }
+    @media (max-width: 640px) {
+      .container { width: min(100% - 20px, 1180px); }
+      h1 { font-size: 32px; }
+      .price-row, .cta-row, .socials { width: 100%; }
+      .btn, .social-pill { width: 100%; justify-content: center; text-align: center; }
+      .gallery { grid-template-columns: repeat(2, 1fr); }
+      .feature-grid { grid-template-columns: 1fr; }
+      .price-row { align-items: stretch; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <div class="brand-badge">C</div>
+        <div>
+          <div class="brand-title">CampusCart BD</div>
+          <div class="brand-subtitle">One product landing page</div>
+        </div>
+      </div>
+
+      <div class="socials">
+        <a class="social-pill" href="#product">Product</a>
+        <a class="social-pill" href="#details">Details</a>
+        <a class="social-pill" href="#order-form">Order Form</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <article class="card product-card" id="product">
+          <div class="product-image-wrap">
+            <div class="floating-badge">Best for student desk</div>
+            <!-- Put the image file beside index.html or update the path below -->
+            <img src="HP_Convertible_Laptop_Stand_standing_white_M1577049.png" alt="Convertible Laptop Stand" />
+          </div>
+          <div class="product-body">
+            <div class="eyebrow">Premium student essential</div>
+            <h1>Convertible Laptop Stand</h1>
+            <div class="rating">
+              <div class="stars">★★★★★</div>
+              <div class="rating-text">4.9/5 from student buyers</div>
+            </div>
+
+            <div class="price-row">
+              <div class="price-box">
+                <div class="old-price">Regular Price: ৳1,299</div>
+                <div class="new-price">Offer Price: ৳950</div>
+              </div>
+              <div class="offer-tag">Save ৳349 today</div>
+            </div>
+
+            <div class="cta-row">
+              <a class="btn btn-dark" href="#order-form">Order Now</a>
+              <a class="btn btn-outline" href="#details">See Full Details</a>
+            </div>
+
+            <ul class="info-list">
+              <li><span class="check">✓</span><span>Helps improve posture during study and online classes.</span></li>
+              <li><span class="check">✓</span><span>Lightweight, foldable, and easy to carry in a bag.</span></li>
+              <li><span class="check">✓</span><span>Perfect for school, college, university, hostel, and home use.</span></li>
+              <li><span class="check">✓</span><span>Works well with laptops, tablets, and notes setup.</span></li>
+            </ul>
+          </div>
+        </article>
+
+        <aside class="sidebar">
+          <section class="card panel" id="details">
+            <div class="eyebrow">Why students buy it</div>
+            <h2>Simple, useful, and easy to sell.</h2>
+            <p>
+              This one-product page keeps attention on the stand only. Visitors see the product first,
+              then they fill the form and order.
+            </p>
+            <div class="gallery" aria-label="Product gallery">
+              <div class="thumb"><img src="HP_Convertible_Laptop_Stand_standing_white_M1577049.png" alt="Laptop stand image 1" /></div>
+              <div class="thumb"><img src="HP_Convertible_Laptop_Stand_standing_white_M1577049.png" alt="Laptop stand image 2" /></div>
+              <div class="thumb"><img src="HP_Convertible_Laptop_Stand_standing_white_M1577049.png" alt="Laptop stand image 3" /></div>
+              <div class="thumb"><img src="HP_Convertible_Laptop_Stand_standing_white_M1577049.png" alt="Laptop stand image 4" /></div>
+            </div>
+          </section>
+
+          <section class="card panel">
+            <h3>Product features</h3>
+            <div class="feature-grid">
+              <div class="feature"><strong>Adjustable angle</strong><span>Comfortable viewing position.</span></div>
+              <div class="feature"><strong>Strong build</strong><span>Stable for daily use.</span></div>
+              <div class="feature"><strong>Portable design</strong><span>Easy to move anywhere.</span></div>
+              <div class="feature"><strong>Heat-friendly</strong><span>Improves airflow under laptop.</span></div>
+            </div>
+          </section>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container section-grid">
+        <section class="card panel">
+          <div class="eyebrow">Specifications</div>
+          <h2>Everything a customer wants to know</h2>
+          <div class="specs">
+            <div class="spec-row"><span>Product Name</span><span>Convertible Laptop Stand</span></div>
+            <div class="spec-row"><span>Material</span><span>Aluminum / metal build</span></div>
+            <div class="spec-row"><span>Usage</span><span>Study, class, office, hostel</span></div>
+            <div class="spec-row"><span>Delivery</span><span>Cash on Delivery</span></div>
+            <div class="spec-row"><span>Warranty</span><span>Check with supplier</span></div>
+          </div>
+        </section>
+
+        <section class="card panel">
+          <div class="eyebrow">Reviews</div>
+          <h2>Customer feedback</h2>
+          <div class="reviews">
+            <div class="review">
+              <div class="name">Rahim, Dhaka</div>
+              <div class="stars">★★★★★</div>
+              <div class="text">Very useful for study desk. Simple and strong.</div>
+            </div>
+            <div class="review">
+              <div class="name">Nila, Chattogram</div>
+              <div class="stars">★★★★★</div>
+              <div class="text">My laptop setup looks neat now. Good product.</div>
+            </div>
+            <div class="review">
+              <div class="name">Sohan, Rajshahi</div>
+              <div class="stars">★★★★☆</div>
+              <div class="text">Fast delivery and nice quality.</div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container section-grid">
+        <section class="card panel">
+          <div class="eyebrow">FAQs</div>
+          <h2>Common questions</h2>
+          <div class="faq">
+            <div class="faq-item">
+              <h4>Will it work for my laptop?</h4>
+              <p>Yes, it is suitable for most standard student laptops and tablets.</p>
+            </div>
+            <div class="faq-item">
+              <h4>How does delivery work?</h4>
+              <p>You place the order, we confirm by phone, and the supplier ships to your address.</p>
+            </div>
+            <div class="faq-item">
+              <h4>Can I pay cash on delivery?</h4>
+              <p>Yes. Cash on Delivery is available for Bangladesh.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="card panel form-card" id="order-form">
+          <div class="eyebrow">Customer information</div>
+          <h2>Fill in your details</h2>
+          <p>After this form, the order button is placed below. You can connect this form later to Google Sheets or email.</p>
+
+          <form action="#" method="post">
+            <div>
+              <label for="fullName">Full Name *</label>
+              <input id="fullName" name="fullName" type="text" placeholder="Your full name" required />
+            </div>
+
+            <div>
+              <label for="phone">Phone Number *</label>
+              <input id="phone" name="phone" type="tel" placeholder="01XXXXXXXXX" required />
+            </div>
+
+            <div>
+              <label for="district">District *</label>
+              <select id="district" name="district" required>
+                <option value="">Select district</option>
+                <option>Dhaka</option>
+                <option>Chattogram</option>
+                <option>Rajshahi</option>
+                <option>Khulna</option>
+                <option>Barishal</option>
+                <option>Sylhet</option>
+                <option>Rangpur</option>
+                <option>Mymensingh</option>
+                <option>Comilla</option>
+                <option>Noakhali</option>
+                <option>Feni</option>
+                <option>Cox's Bazar</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="address">Full Address *</label>
+              <textarea id="address" name="address" placeholder="Village, road, area, thana, district" required></textarea>
+            </div>
+
+            <div>
+              <label for="quantity">Quantity</label>
+              <select id="quantity" name="quantity">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>
+
+            <div class="summary" aria-live="polite">
+              <div class="summary-row"><span>Product Price</span><strong id="priceText">৳950</strong></div>
+              <div class="summary-row"><span>Delivery Charge</span><strong id="deliveryText">৳60</strong></div>
+              <div class="summary-row"><span>Quantity</span><strong id="qtyText">1</strong></div>
+              <div class="summary-row total"><span>Total</span><strong id="totalText">৳1,010</strong></div>
+            </div>
+
+            <div class="note">
+              This is a one-page HTML demo. To actually store customer info, connect the form to Google Sheets,
+              Google Forms, PHP, or another backend later.
+            </div>
+
+            <button class="btn btn-green btn-full" type="submit">ORDER NOW</button>
+          </form>
+        </section>
+      </div>
+    </section>
+
+    <div class="sticky-order">
+      <div class="container sticky-order-inner">
+        <div>
+          <div class="eyebrow">Ready to order</div>
+          <div class="price-mini">Convert your visitor into a customer now</div>
+        </div>
+        <a class="btn btn-dark" href="#order-form">Order Now</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      © 2026 CampusCart BD • Privacy Policy • Shipping Policy • Terms
+    </div>
+  </footer>
+
+  <script>
+    const basePrice = 950;
+
+    function deliveryCharge(district) {
+      if (!district) return 60;
+      const dhakaLike = ["Dhaka"];
+      return dhakaLike.includes(district) ? 60 : 120;
+    }
+
+    function updateSummary() {
+      const qty = Number(document.getElementById('quantity').value || 1);
+      const district = document.getElementById('district').value;
+      const delivery = deliveryCharge(district);
+      const total = (basePrice * qty) + delivery;
+
+      document.getElementById('priceText').textContent = `৳${basePrice.toLocaleString()}`;
+      document.getElementById('deliveryText').textContent = `৳${delivery.toLocaleString()}`;
+      document.getElementById('qtyText').textContent = qty;
+      document.getElementById('totalText').textContent = `৳${total.toLocaleString()}`;
+    }
+
+    document.getElementById('quantity').addEventListener('change', updateSummary);
+    document.getElementById('district').addEventListener('change', updateSummary);
+    updateSummary();
+  </script>
+</body>
+</html>
